@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIGestion – ERP Comercial y Operativo para PYMES en Nicaragua</title>
+    <meta name="description" content="SIGestion es la plataforma integral de gestión empresarial para PYMES en Nicaragua y Centroamérica. Gestiona ventas, inventario, rutas, entregas y equipo de campo desde un solo lugar.">
+    <meta name="keywords" content="ERP, gestión empresarial, PYMES, Nicaragua, inventario, ventas, rutas, entregas, GPS tracking">
+    <meta name="author" content="SIGestion">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="SIGestion – Todo tu negocio en un solo lugar">
+    <meta property="og:description" content="Plataforma integral de gestión para PYMES en Nicaragua. Ventas, inventario, rutas, entregas y más.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sigestion.com">
+    <meta property="og:locale" content="es_NI">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="SIGestion – Todo tu negocio en un solo lugar">
+    <meta name="twitter:description" content="Plataforma integral de gestión para PYMES en Nicaragua.">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "SIGestion",
+        "applicationCategory": "BusinessApplication",
+        "description": "Sistema integral de gestión empresarial para PYMES en Nicaragua y Centroamérica.",
+        "operatingSystem": "Web",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "author": { "@type": "Organization", "name": "SIGestion" }
+    }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@1&family=Inter:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* ============ RESET & VARIABLES ============ */
+:root{--primary:#5C3CFF;--primary-dark:#4A2FE0;--primary-light:#7B61FF;--secondary:#0A0A1A;--accent:#10B981;--bg:#FFFFFF;--bg-light:#F0F2F5;--bg-card:#FFFFFF;--text-dark:#0A0A1A;--text-body:#4A5568;--text-muted:#6B7A8F;--border:#E2E8F0;--border-light:#EDF2F7;--shadow-sm:0 2px 8px rgba(0,0,0,0.04);--shadow-md:0 8px 24px rgba(0,0,0,0.04);--shadow-lg:0 12px 40px rgba(0,0,0,0.08);--radius-sm:8px;--radius-md:12px;--radius-lg:16px;--radius-xl:24px;--radius-full:9999px;--font-sans:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;--font-jakarta:'Plus Jakarta Sans',sans-serif;--font-serif:'Instrument Serif',serif;--transition:0.3s cubic-bezier(0.4,0,0.2,1);--max-width:1200px}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:var(--font-sans);color:var(--text-body);background:linear-gradient(180deg,#FFFFFF 0%,#F0F2F5 100%);background-attachment:fixed;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+img{max-width:100%;height:auto;display:block}
+a{text-decoration:none;color:inherit}
+button{border:none;background:none;cursor:pointer;font-family:inherit}
+ul,ol{list-style:none}
+.container{max-width:var(--max-width);margin:0 auto;padding:0 24px}
+
+/* Grid Lines */
+.grid-lines{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;display:none}
+@media(min-width:1024px){.grid-lines{display:block}}
+.grid-line{position:absolute;top:0;bottom:0;width:1px;background:rgba(0,0,0,0.05)}
+.grid-line:nth-child(1){left:25%}.grid-line:nth-child(2){left:50%}.grid-line:nth-child(3){left:75%}
+
+/* Central Glow */
+.central-glow{position:fixed;top:-80px;left:50%;transform:translateX(-50%);pointer-events:none;z-index:0;opacity:0.5}
+
+/* ============ BUTTONS ============ */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:var(--font-jakarta);font-weight:700;font-size:14px;padding:12px 28px;border-radius:var(--radius-full);transition:all var(--transition);white-space:nowrap;cursor:pointer;text-transform:uppercase;letter-spacing:0.5px}
+.btn-sm{padding:8px 20px;font-size:12px}.btn-lg{padding:16px 36px;font-size:16px}.btn-full{width:100%}
+.btn-primary{background:var(--primary);color:#fff;box-shadow:0 4px 14px rgba(92,60,255,0.3)}
+.btn-primary:hover{background:var(--accent);box-shadow:0 4px 20px rgba(16,185,129,0.4);transform:translateY(-2px)}
+.btn-primary:focus-visible{outline:3px solid var(--primary-light);outline-offset:2px}
+.btn-outline-purple{border:2px solid var(--primary);color:var(--primary);background:transparent}
+.btn-outline-purple:hover{background:var(--primary);color:#fff;transform:translateY(-2px)}
+.btn-outline-purple:focus-visible{outline:3px solid var(--primary-light);outline-offset:2px}
+.btn-icon{flex-shrink:0}
+
+/* ============ HEADER ============ */
+.header{position:fixed;top:0;left:0;right:0;z-index:998;background:rgba(255,255,255,0.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(226,232,240,0.5);transition:all var(--transition)}
+.header.scrolled{background:rgba(255,255,255,0.95);box-shadow:0 2px 20px rgba(0,0,0,0.06)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;height:72px}
+.logo{display:flex;align-items:center;gap:10px;z-index:999}
+.logo-icon{width:36px;height:36px;background:var(--primary);color:#fff;border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center;font-family:var(--font-jakarta);font-weight:800;font-size:18px}
+.logo-text{font-family:var(--font-jakarta);font-weight:800;font-size:22px;color:var(--secondary);letter-spacing:-0.5px}
+.logo-highlight{color:var(--primary)}
+.desktop-nav{display:none;align-items:center;gap:32px}
+@media(min-width:768px){.desktop-nav{display:flex}}
+.nav-link{font-family:var(--font-sans);font-size:16px;font-weight:500;color:#1A1A2E;transition:color var(--transition);position:relative}
+.nav-link::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--primary);transition:width var(--transition);border-radius:1px}
+.nav-link:hover{color:var(--primary)}.nav-link:hover::after{width:100%}
+.nav-link:focus-visible{outline:2px solid var(--primary);outline-offset:4px;border-radius:4px}
+.header-actions{display:flex;align-items:center;gap:12px}
+.header-actions .btn{display:none}
+@media(min-width:768px){.header-actions .btn{display:inline-flex}}
+.hamburger{display:flex;flex-direction:column;gap:5px;padding:8px;z-index:999}
+@media(min-width:768px){.hamburger{display:none}}
+.hamburger-line{width:24px;height:2px;background:var(--secondary);border-radius:2px;transition:all var(--transition)}
+.hamburger.active .hamburger-line:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.active .hamburger-line:nth-child(2){opacity:0}
+.hamburger.active .hamburger-line:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+/* Mobile Menu - SOLID BACKGROUND */
+.mobile-menu{position:fixed;top:0;left:0;right:0;bottom:0;z-index:9999;display:flex;flex-direction:column;background:#FFFFFF;background-color:#FFFFFF;opacity:0;visibility:hidden;transition:all 0.4s cubic-bezier(0.4,0,0.2,1);overflow-y:auto;-webkit-backdrop-filter:none;backdrop-filter:none}
+.mobile-menu.active{opacity:1;visibility:visible}
+.mobile-menu-header{display:flex;align-items:center;justify-content:space-between;height:72px;padding:0 24px;border-bottom:1px solid var(--border-light);position:sticky;top:0;background:#FFFFFF;z-index:2}
+.menu-close{width:44px;height:44px;display:flex;align-items:center;justify-content:center;border-radius:var(--radius-md);color:var(--secondary);transition:all var(--transition);background:var(--bg-light)}
+.menu-close:hover{color:var(--primary);background:rgba(92,60,255,0.1)}
+.mobile-nav{display:flex;flex-direction:column;align-items:center;justify-content:center;flex:1;padding:24px;text-align:center}
+.mobile-link{font-family:var(--font-jakarta);font-size:clamp(24px,6vw,32px);font-weight:700;color:#1A1A2E;padding:20px 0;width:100%;border-bottom:1px solid var(--border-light);transition:all var(--transition);transform:translateY(20px);opacity:0;display:block}
+.mobile-menu.active .mobile-link{transform:translateY(0);opacity:1;transition:all 0.5s cubic-bezier(0.4,0,0.2,1)}
+.mobile-menu.active .mobile-link:nth-child(1){transition-delay:0.1s}
+.mobile-menu.active .mobile-link:nth-child(2){transition-delay:0.15s}
+.mobile-menu.active .mobile-link:nth-child(3){transition-delay:0.2s}
+.mobile-menu.active .mobile-link:nth-child(4){transition-delay:0.25s}
+.mobile-link:hover{color:var(--primary);padding-left:8px}
+.mobile-link:active{background:rgba(92,60,255,0.05)}
+.mobile-nav .btn{margin-top:32px;transform:translateY(20px);opacity:0;min-width:200px}
+.mobile-menu.active .btn{transform:translateY(0);opacity:1;transition:all 0.5s cubic-bezier(0.4,0,0.2,1) 0.3s}
+.mobile-contact-info{padding:24px;text-align:center;border-top:1px solid var(--border-light);margin-top:auto}
+.mobile-contact-item{display:flex;align-items:center;justify-content:center;gap:10px;font-size:14px;color:var(--text-muted);padding:8px 0}
+.mobile-contact-item svg{flex-shrink:0;color:var(--primary)}
+.mobile-contact-item a{color:var(--text-muted);transition:color var(--transition)}
+.mobile-contact-item a:hover{color:var(--primary)}
+
+/* ============ SECTIONS ============ */
+.section{padding:100px 0;position:relative;z-index:1}
+.section-header{text-align:center;max-width:640px;margin:0 auto 64px}
+.section-tag{display:inline-block;font-family:var(--font-jakarta);font-size:11px;font-weight:700;color:var(--primary);text-transform:uppercase;letter-spacing:2px;margin-bottom:16px}
+.section-title{font-family:var(--font-jakarta);font-size:clamp(28px,4vw,40px);font-weight:800;color:var(--secondary);line-height:1.2;margin-bottom:16px;letter-spacing:-0.5px}
+.section-subtitle{font-size:16px;color:var(--text-muted);line-height:1.6}
+
+/* ============ HERO WITH VIDEO ============ */
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:120px 0 80px;position:relative;z-index:1;overflow:hidden}
+.hero-video-bg{position:absolute;top:0;left:0;width:100%;height:100%;z-index:-1}
+.hero-video-bg video{width:100%;height:100%;object-fit:cover}
+.hero-video-overlay{position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(135deg,rgba(10,10,26,0.7) 0%,rgba(92,60,255,0.4) 100%);z-index:0}
+.hero-video-fallback{position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(135deg,#5C3CFF 0%,#0A0A1A 100%);z-index:-2}
+.hero-content{display:flex;flex-direction:column;align-items:center;text-align:center;position:relative;z-index:2}
+
+/* Glass Card */
+.glass-card{width:200px;height:200px;background:rgba(255,255,255,0.6);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);box-shadow:0 8px 32px rgba(0,0,0,0.06),inset 0 1px 1px rgba(255,255,255,0.8);border:1px solid rgba(255,255,255,0.5);border-radius:var(--radius-xl);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;margin-bottom:-50px;transform:translateY(-50px);position:relative;z-index:2}
+.glass-card::before{content:'';position:absolute;inset:-1px;border-radius:var(--radius-xl);background:linear-gradient(135deg,rgba(92,60,255,0.3),rgba(16,185,129,0.3));z-index:-1;mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);mask-composite:exclude;-webkit-mask-composite:xor;padding:1px}
+.glass-tag{font-family:var(--font-sans);font-size:14px;color:var(--primary);margin-bottom:8px;letter-spacing:1px}
+.glass-headline{font-family:var(--font-jakarta);font-size:18px;font-weight:700;color:var(--secondary);text-align:center;line-height:1.3}
+.glass-headline em{font-family:var(--font-serif);font-style:italic;font-weight:400}
+.glass-desc{font-size:11px;color:var(--text-muted);margin-top:8px;text-align:center}
+
+/* Hero Text */
+.hero-text{max-width:720px}
+.hero-eyebrow{display:inline-block;font-family:var(--font-jakarta);font-size:11px;font-weight:700;color:var(--primary);text-transform:uppercase;letter-spacing:2px;margin-bottom:20px}
+.hero-title{font-family:var(--font-sans);font-size:clamp(36px,6vw,72px);font-weight:800;color:#fff;line-height:1.05;text-transform:uppercase;letter-spacing:-1.5px;margin-bottom:24px}
+.text-green{color:var(--accent)}
+.hero-description{font-size:clamp(14px,2vw,16px);color:rgba(255,255,255,0.85);max-width:512px;margin:0 auto 36px;line-height:1.7}
+.hero-cta{display:flex;justify-content:center}
+
+/* ============ FEATURES ============ */
+.features-grid{display:grid;grid-template-columns:1fr;gap:24px}
+@media(min-width:640px){.features-grid{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1024px){.features-grid{grid-template-columns:repeat(4,1fr)}}
+.feature-card{background:var(--bg-card);border:1px solid var(--border-light);border-radius:var(--radius-lg);padding:32px 24px;box-shadow:var(--shadow-md);transition:all var(--transition)}
+.feature-card:hover{transform:translateY(-6px);box-shadow:0 16px 48px rgba(0,0,0,0.08)}
+.feature-icon{width:56px;height:56px;background:linear-gradient(135deg,rgba(92,60,255,0.1),rgba(92,60,255,0.05));border-radius:var(--radius-md);display:flex;align-items:center;justify-content:center;margin-bottom:20px;color:var(--primary)}
+.feature-title{font-family:var(--font-jakarta);font-size:18px;font-weight:700;color:var(--secondary);margin-bottom:8px}
+.feature-desc{font-size:14px;color:var(--text-muted);line-height:1.6}
+
+/* ============ MODULES ============ */
+.modules{background:linear-gradient(180deg,transparent 0%,rgba(92,60,255,0.02) 50%,transparent 100%)}
+.modules-grid{display:grid;grid-template-columns:1fr;gap:20px}
+@media(min-width:640px){.modules-grid{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1024px){.modules-grid{grid-template-columns:repeat(3,1fr)}}
+.module-card{background:var(--bg-card);border-radius:var(--radius-lg);padding:32px 24px;position:relative;cursor:pointer;transition:all var(--transition);overflow:hidden;border:1px solid var(--border-light)}
+.module-card::before{content:'';position:absolute;inset:0;border-radius:var(--radius-lg);padding:1px;background:linear-gradient(135deg,var(--primary),var(--accent));-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;opacity:0.4;transition:opacity var(--transition);pointer-events:none}
+.module-card:hover::before,.module-card:focus-visible::before{opacity:1}
+.module-card:hover,.module-card:focus-visible{transform:scale(1.02);box-shadow:0 12px 40px rgba(92,60,255,0.1)}
+.module-icon{width:56px;height:56px;background:linear-gradient(135deg,rgba(92,60,255,0.1),rgba(16,185,129,0.1));border-radius:var(--radius-md);display:flex;align-items:center;justify-content:center;margin-bottom:20px;color:var(--primary)}
+.module-title{font-family:var(--font-jakarta);font-size:18px;font-weight:700;color:var(--secondary);margin-bottom:8px}
+.module-desc{font-size:14px;color:var(--text-muted);line-height:1.5}
+.module-details{max-height:0;overflow:hidden;transition:max-height 0.4s cubic-bezier(0.4,0,0.2,1),opacity 0.3s ease;opacity:0}
+.module-card.expanded .module-details{max-height:200px;opacity:1;margin-top:16px;padding-top:16px;border-top:1px solid var(--border-light)}
+.module-details p{font-size:13px;color:var(--text-body);line-height:1.6}
+
+/* ============ HOW IT WORKS ============ */
+.how-it-works{background:linear-gradient(180deg,rgba(92,60,255,0.02) 0%,transparent 100%)}
+.steps-container{display:flex;flex-direction:column;align-items:center;gap:0;max-width:800px;margin:0 auto}
+@media(min-width:768px){.steps-container{flex-direction:row;justify-content:center;gap:0}}
+.step{display:flex;flex-direction:column;align-items:center;text-align:center;padding:32px 24px;flex:1;max-width:280px}
+.step-number{width:56px;height:56px;background:linear-gradient(135deg,var(--primary),var(--primary-light));color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--font-jakarta);font-weight:800;font-size:20px;margin-bottom:20px;box-shadow:0 4px 16px rgba(92,60,255,0.3)}
+.step-title{font-family:var(--font-jakarta);font-size:20px;font-weight:700;color:var(--secondary);margin-bottom:8px}
+.step-desc{font-size:14px;color:var(--text-muted);line-height:1.6}
+.step-connector{width:2px;height:40px;border-left:2px dashed var(--border);margin:0 auto}
+@media(min-width:768px){.step-connector{width:60px;height:2px;border-left:none;border-top:2px dashed var(--border);margin:0;flex-shrink:0;align-self:flex-start;margin-top:60px}}
+
+/* ============ TESTIMONIALS ============ */
+.testimonials-grid{display:grid;grid-template-columns:1fr;gap:24px}
+@media(min-width:768px){.testimonials-grid{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1024px){.testimonials-grid{grid-template-columns:repeat(3,1fr)}}
+.testimonial-card{background:rgba(255,255,255,0.7);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.8);border-radius:var(--radius-lg);padding:32px;box-shadow:var(--shadow-md);transition:all var(--transition)}
+.testimonial-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
+.testimonial-quote{margin-bottom:16px}
+.testimonial-text{font-size:15px;color:var(--text-body);line-height:1.7;margin-bottom:24px;font-style:italic}
+.testimonial-author{display:flex;align-items:center;gap:12px}
+.testimonial-avatar{width:44px;height:44px;background:linear-gradient(135deg,var(--primary),var(--accent));color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--font-jakarta);font-weight:700;font-size:14px;flex-shrink:0}
+.testimonial-name{display:block;font-family:var(--font-jakarta);font-weight:700;font-size:14px;color:var(--secondary)}
+.testimonial-role{display:block;font-size:12px;color:var(--text-muted);margin-top:2px}
+
+/* ============ PRICING ============ */
+.pricing-grid{display:grid;grid-template-columns:1fr;gap:24px;align-items:start}
+@media(min-width:768px){.pricing-grid{grid-template-columns:repeat(3,1fr);gap:32px}}
+.pricing-card{background:var(--bg-card);border:1px solid var(--border-light);border-radius:var(--radius-xl);padding:40px 32px;text-align:center;transition:all var(--transition);position:relative}
+.pricing-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
+.pricing-card-featured{background:linear-gradient(180deg,rgba(92,60,255,0.04) 0%,rgba(92,60,255,0.08) 100%);border-color:rgba(92,60,255,0.2);transform:scale(1.05)}
+.pricing-card-featured:hover{transform:scale(1.05) translateY(-4px)}
+.pricing-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--primary);color:#fff;font-family:var(--font-jakarta);font-size:12px;font-weight:700;padding:6px 20px;border-radius:var(--radius-full);white-space:nowrap;box-shadow:0 4px 12px rgba(92,60,255,0.3)}
+.pricing-header{margin-bottom:24px}
+.pricing-name{font-family:var(--font-jakarta);font-size:22px;font-weight:800;color:var(--secondary);margin-bottom:4px}
+.pricing-desc{font-size:14px;color:var(--text-muted)}
+.pricing-price{display:flex;align-items:baseline;justify-content:center;gap:2px;margin-bottom:32px}
+.pricing-currency{font-size:24px;font-weight:700;color:var(--secondary)}
+.pricing-amount{font-family:var(--font-jakarta);font-size:56px;font-weight:800;color:var(--secondary);line-height:1}
+.pricing-period{font-size:16px;color:var(--text-muted)}
+.pricing-features{text-align:left;margin-bottom:32px}
+.pricing-feature{display:flex;align-items:center;gap:12px;padding:10px 0;font-size:14px;color:var(--text-body);border-bottom:1px solid var(--border-light)}
+.pricing-feature:last-child{border-bottom:none}
+.pricing-feature svg{flex-shrink:0}
+
+/* ============ CONTACT ============ */
+.contact-grid{display:grid;grid-template-columns:1fr;gap:48px;align-items:start}
+@media(min-width:768px){.contact-grid{grid-template-columns:1fr 1fr;gap:64px}}
+.contact-form-wrapper .section-header{text-align:left;margin-bottom:32px}
+.contact-form{display:flex;flex-direction:column;gap:20px}
+.form-group{display:flex;flex-direction:column;gap:6px}
+.form-label{font-family:var(--font-jakarta);font-size:13px;font-weight:600;color:var(--secondary)}
+.form-input{font-family:var(--font-sans);font-size:15px;padding:14px 16px;border:1px solid var(--border);border-radius:var(--radius-md);background:rgba(255,255,255,0.8);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);color:var(--secondary);transition:all var(--transition);outline:none}
+.form-input::placeholder{color:var(--text-muted)}
+.form-input:focus{border-color:var(--primary);box-shadow:0 0 0 3px rgba(92,60,255,0.1)}
+.form-textarea{resize:vertical;min-height:120px}
+.form-input:invalid:not(:placeholder-shown){border-color:#EF4444}
+
+/* Contact Info Card */
+.contact-info-card{background:rgba(255,255,255,0.7);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.8);border-radius:var(--radius-xl);padding:40px 32px;box-shadow:var(--shadow-md)}
+.contact-info-title{font-family:var(--font-jakarta);font-size:22px;font-weight:800;color:var(--secondary);margin-bottom:24px}
+.contact-info-item{display:flex;align-items:flex-start;gap:16px;padding:16px 0;border-bottom:1px solid var(--border-light)}
+.contact-info-item:last-child{border-bottom:none}
+.contact-info-icon{width:44px;height:44px;background:linear-gradient(135deg,rgba(92,60,255,0.1),rgba(92,60,255,0.05));border-radius:var(--radius-md);display:flex;align-items:center;justify-content:center;color:var(--primary);flex-shrink:0}
+.contact-info-label{font-family:var(--font-jakarta);font-size:12px;font-weight:600;color:var(--text-muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:4px}
+.contact-info-value{font-size:15px;color:var(--secondary);font-weight:500}
+.contact-info-value a{color:var(--primary);transition:color var(--transition)}
+.contact-info-value a:hover{color:var(--accent)}
+.schedule-card{background:rgba(255,255,255,0.7);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.8);border-radius:var(--radius-xl);padding:40px 32px;box-shadow:var(--shadow-md);text-align:center;margin-top:24px}
+.schedule-icon{margin-bottom:24px}
+.schedule-title{font-family:var(--font-jakarta);font-size:22px;font-weight:800;color:var(--secondary);margin-bottom:12px}
+.schedule-desc{font-size:14px;color:var(--text-muted);line-height:1.6;margin-bottom:24px}
+.schedule-btn{margin-bottom:32px}
+.schedule-features{display:flex;flex-direction:column;gap:12px;align-items:flex-start;padding:24px;background:rgba(92,60,255,0.03);border-radius:var(--radius-md)}
+.schedule-feature{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--text-body);font-weight:500}
+
+/* ============ FOOTER ============ */
+.footer{background:#F5F7FA;padding:80px 0 32px;border-top:1px solid var(--border-light);position:relative;z-index:1}
+.footer-grid{display:grid;grid-template-columns:1fr;gap:40px;margin-bottom:48px}
+@media(min-width:640px){.footer-grid{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1024px){.footer-grid{grid-template-columns:2fr 1fr 1fr 1.5fr}}
+.footer-brand .logo{margin-bottom:16px}
+.footer-tagline{font-family:var(--font-jakarta);font-size:11px;font-weight:700;color:var(--primary);text-transform:uppercase;letter-spacing:2px;margin-bottom:12px}
+.footer-desc{font-size:14px;color:var(--text-muted);line-height:1.6;max-width:300px}
+.footer-heading{font-family:var(--font-jakarta);font-size:14px;font-weight:700;color:var(--secondary);text-transform:uppercase;letter-spacing:1px;margin-bottom:16px}
+.footer-link{display:block;font-size:14px;color:var(--text-muted);padding:6px 0;transition:color var(--transition)}
+.footer-link:hover{color:var(--primary)}
+.footer-social{display:flex;gap:12px}
+.social-link{width:40px;height:40px;display:flex;align-items:center;justify-content:center;border-radius:var(--radius-sm);background:rgba(92,60,255,0.06);color:var(--text-muted);transition:all var(--transition)}
+.social-link:hover{background:var(--primary);color:#fff;transform:translateY(-2px)}
+.footer-bottom{border-top:1px solid var(--border);padding-top:24px;display:flex;flex-direction:column;gap:8px;align-items:center;text-align:center;font-size:13px;color:var(--text-muted)}
+@media(min-width:768px){.footer-bottom{flex-direction:row;justify-content:space-between}}
+.footer-made{font-size:12px}
+
+/* Footer Contact Info */
+.footer-contact-item{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--text-muted);padding:4px 0}
+.footer-contact-item svg{flex-shrink:0;color:var(--primary)}
+.footer-contact-item a{color:var(--text-muted);transition:color var(--transition)}
+.footer-contact-item a:hover{color:var(--primary)}
+
+/* ============ WHATSAPP BUTTON ============ */
+.whatsapp-float{position:fixed;bottom:24px;right:24px;z-index:999;width:56px;height:56px;border-radius:50%;background:#25D366;color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(37,211,102,0.3);transition:all var(--transition);text-decoration:none}
+.whatsapp-float:hover{transform:scale(1.05);box-shadow:0 6px 24px rgba(37,211,102,0.4)}
+.whatsapp-float:focus-visible{outline:3px solid #25D366;outline-offset:2px}
+
+/* ============ ANIMATIONS ============ */
+.animate-on-scroll{opacity:0;transform:translateY(30px);transition:opacity 0.6s cubic-bezier(0.4,0,0.2,1),transform 0.6s cubic-bezier(0.4,0,0.2,1)}
+.animate-on-scroll.visible{opacity:1;transform:translateY(0)}
+.features-grid .animate-on-scroll:nth-child(1){transition-delay:0s}
+.features-grid .animate-on-scroll:nth-child(2){transition-delay:0.1s}
+.features-grid .animate-on-scroll:nth-child(3){transition-delay:0.2s}
+.features-grid .animate-on-scroll:nth-child(4){transition-delay:0.3s}
+.modules-grid .animate-on-scroll:nth-child(1){transition-delay:0s}
+.modules-grid .animate-on-scroll:nth-child(2){transition-delay:0.08s}
+.modules-grid .animate-on-scroll:nth-child(3){transition-delay:0.16s}
+.modules-grid .animate-on-scroll:nth-child(4){transition-delay:0.24s}
+.modules-grid .animate-on-scroll:nth-child(5){transition-delay:0.32s}
+.modules-grid .animate-on-scroll:nth-child(6){transition-delay:0.4s}
+.pricing-grid .animate-on-scroll:nth-child(1){transition-delay:0s}
+.pricing-grid .animate-on-scroll:nth-child(2){transition-delay:0.1s}
+.pricing-grid .animate-on-scroll:nth-child(3){transition-delay:0.2s}
+.testimonials-grid .animate-on-scroll:nth-child(1){transition-delay:0s}
+.testimonials-grid .animate-on-scroll:nth-child(2){transition-delay:0.1s}
+.testimonials-grid .animate-on-scroll:nth-child(3){transition-delay:0.2s}
+@keyframes shake{0%,100%{transform:translateX(0)}10%,30%,50%,70%,90%{transform:translateX(-4px)}20%,40%,60%,80%{transform:translateX(4px)}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:0.01ms !important;animation-iteration-count:1 !important;transition-duration:0.01ms !important}.animate-on-scroll{opacity:1;transform:none}}
+:focus-visible{outline:2px solid var(--primary);outline-offset:2px}
+::selection{background:rgba(92,60,255,0.15);color:var(--secondary)}
+::-webkit-scrollbar{width:8px}::-webkit-scrollbar-track{background:var(--bg-light)}::-webkit-scrollbar-thumb{background:var(--border);border-radius:4px}::-webkit-scrollbar-thumb:hover{background:var(--text-muted)}
+</style>
+</head>
+<body>
+
+<!-- Grid Lines -->
+<div class="grid-lines" aria-hidden="true">
+    <div class="grid-line"></div>
+    <div class="grid-line"></div>
+    <div class="grid-line"></div>
+</div>
+
+<!-- SVG Glow -->
+<div class="central-glow" aria-hidden="true">
+    <svg width="800" height="300" viewBox="0 0 800 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+            <filter id="glow-blur" x="-50%" y="-50%" width="200%" height="200%">
+                <feGaussianBlur stdDeviation="40" />
+            </filter>
+        </defs>
+        <ellipse cx="400" cy="150" rx="280" ry="80" fill="#5C3CFF" opacity="0.06" filter="url(#glow-blur)" />
+    </svg>
+</div>
+
+<!-- HEADER -->
+<header class="header" id="header" role="banner">
+    <div class="container header-inner">
+        <a href="#" class="logo" aria-label="SIGestion - Inicio">
+            <span class="logo-icon">S</span>
+            <span class="logo-text">SIG<span class="logo-highlight">estion</span></span>
+        </a>
+        <nav class="desktop-nav" aria-label="Navegación principal">
+            <a href="#modulos" class="nav-link">Módulos</a>
+            <a href="#precios" class="nav-link">Precios</a>
+            <a href="#testimonios" class="nav-link">Testimonios</a>
+            <a href="#contacto" class="nav-link">Contacto</a>
+        </nav>
+        <div class="header-actions">
+            <a href="#contacto" class="btn btn-outline-purple btn-sm">Demo</a>
+            <button class="hamburger" id="menu-toggle" aria-label="Abrir menú" aria-expanded="false">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+        </div>
+    </div>
+</header>
+
+<!-- MOBILE MENU (outside header for proper z-index) -->
+<div class="mobile-menu" id="mobile-menu" role="dialog" aria-label="Menú de navegación" aria-hidden="true">
+    <div class="mobile-menu-header">
+        <a href="#" class="logo" aria-label="SIGestion">
+            <span class="logo-icon">S</span>
+            <span class="logo-text">SIG<span class="logo-highlight">estion</span></span>
+        </a>
+        <button class="menu-close" id="menu-close" aria-label="Cerrar menú">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+    </div>
+    <nav class="mobile-nav" aria-label="Navegación móvil">
+        <a href="#modulos" class="mobile-link">Módulos</a>
+        <a href="#precios" class="mobile-link">Precios</a>
+        <a href="#testimonios" class="mobile-link">Testimonios</a>
+        <a href="#contacto" class="mobile-link">Contacto</a>
+        <a href="#contacto" class="btn btn-primary btn-full">Solicitar Demo</a>
+    </nav>
+    <div class="mobile-contact-info">
+        <div class="mobile-contact-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            <a href="mailto:frankball4@yahoo.es">frankball4@yahoo.es</a>
+        </div>
+        <div class="mobile-contact-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <a href="tel:+50558883346">+505 5888 3346</a>
+        </div>
+    </div>
+</div>
+
+<!-- HERO WITH VIDEO -->
+<section class="hero" id="hero">
+    <!-- Video Background -->
+    <div class="hero-video-fallback" aria-hidden="true"></div>
+    <div class="hero-video-bg" aria-hidden="true">
+        <video autoplay muted loop playsinline poster="">
+            <source src="https://misdemos.x10.mx/videos/video-sigestion2.mp4" type="video/mp4">
+        </video>
+        <div class="hero-video-overlay"></div>
+    </div>
+
+    <div class="container hero-content">
+        <div class="glass-card animate-on-scroll">
+            <span class="glass-tag">[ 2025 ]</span>
+            <h2 class="glass-headline">Sistema Integral de <em>Gestión</em></h2>
+            <p class="glass-desc">Para PYMES en Nicaragua y Centroamérica</p>
+        </div>
+        <div class="hero-text">
+            <span class="hero-eyebrow animate-on-scroll">ERP Comercial y Operativo</span>
+            <h1 class="hero-title animate-on-scroll">SIGestion – Todo tu negocio en un solo lugar<span class="text-green">.</span></h1>
+            <p class="hero-description animate-on-scroll">Gestiona ventas, inventario, rutas, entregas y equipo de campo desde una plataforma unificada. Diseñado para PYMES que quieren crecer sin complicaciones.</p>
+            <div class="hero-cta animate-on-scroll">
+                <a href="#contacto" class="btn btn-primary btn-lg">Solicitar Demo <svg class="btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FEATURES -->
+<section class="section features" id="beneficios">
+    <div class="container">
+        <div class="section-header animate-on-scroll">
+            <span class="section-tag">Beneficios Clave</span>
+            <h2 class="section-title">¿Por qué SIGestion?</h2>
+            <p class="section-subtitle">Herramientas diseñadas para PYMES que buscan eficiencia y crecimiento.</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card animate-on-scroll">
+                <div class="feature-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+                <h3 class="feature-title">Ahorra tiempo</h3>
+                <p class="feature-desc">Automatiza pedidos, rutas y entregas para que tu equipo se enfoque en lo que importa.</p>
+            </div>
+            <div class="feature-card animate-on-scroll">
+                <div class="feature-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m7.5 4.27 9 5.15"/><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg></div>
+                <h3 class="feature-title">Controla tu inventario</h3>
+                <p class="feature-desc">Stock en tiempo real, alertas de bajo stock y control total de almacenes.</p>
+            </div>
+            <div class="feature-card animate-on-scroll">
+                <div class="feature-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></div>
+                <h3 class="feature-title">Optimiza rutas</h3>
+                <p class="feature-desc">Planifica y monitorea a tus agentes en campo con rutas optimizadas.</p>
+            </div>
+            <div class="feature-card animate-on-scroll">
+                <div class="feature-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg></div>
+                <h3 class="feature-title">Toma decisiones</h3>
+                <p class="feature-desc">Reportes y KPIs al instante para tomar decisiones basadas en datos.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- MODULES -->
+<section class="section modules" id="modulos">
+    <div class="container">
+        <div class="section-header animate-on-scroll">
+            <span class="section-tag">Módulos Principales</span>
+            <h2 class="section-title">Todo lo que necesitas, en un solo lugar</h2>
+            <p class="section-subtitle">Módulos integrales diseñados para cubrir cada aspecto de tu negocio.</p>
+        </div>
+        <div class="modules-grid">
+            <div class="module-card animate-on-scroll" tabindex="0" role="button" aria-label="Módulo de Gestión Comercial">
+                <div class="module-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+                <h3 class="module-title">Gestión Comercial</h3>
+                <p class="module-desc">Clientes, productos, precios, promociones.</p>
+                <div class="module-details"><p>Administra tu cartera de clientes, catálogo de productos con precios flexibles, promociones por temporada y seguimiento de ventas por vendedor.</p></div>
+            </div>
+            <div class="module-card animate-on-scroll" tabindex="0" role="button" aria-label="Módulo de Inventario">
+                <div class="module-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m7.5 4.27 9 5.15"/><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg></div>
+                <h3 class="module-title">Inventario</h3>
+                <p class="module-desc">Almacenes, movimientos, kardex, transferencias.</p>
+                <div class="module-details"><p>Control completo de almacenes con kardex electrónico, movimientos de entrada y salida, transferencias entre sucursales y alertas automáticas.</p></div>
+            </div>
+            <div class="module-card animate-on-scroll" tabindex="0" role="button" aria-label="Módulo de Operación">
+                <div class="module-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
+                <h3 class="module-title">Operación</h3>
+                <p class="module-desc">Pedidos, rutas, entregas, vehículos.</p>
+                <div class="module-details"><p>Gestiona pedidos de principio a fin: desde la captura hasta la entrega, con planificación de rutas y seguimiento de vehículos en tiempo real.</p></div>
+            </div>
+            <div class="module-card animate-on-scroll" tabindex="0" role="button" aria-label="Módulo de GPS Tracking">
+                <div class="module-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v4"/><path d="M12 18v4"/><path d="m4.93 4.93 2.83 2.83"/><path d="m16.24 16.24 2.83 2.83"/><path d="M2 12h4"/><path d="M18 12h4"/><path d="m4.93 19.07 2.83-2.83"/><path d="m16.24 7.76 2.83-2.83"/></svg></div>
+                <h3 class="module-title">GPS Tracking</h3>
+                <p class="module-desc">Monitoreo en tiempo real de agentes.</p>
+                <div class="module-details"><p>Ubica a tu equipo de campo en tiempo real, revisa historial de rutas y optimiza cobertura geográfica para máximo rendimiento.</p></div>
+            </div>
+            <div class="module-card animate-on-scroll" tabindex="0" role="button" aria-label="Módulo de Administración">
+                <div class="module-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg></div>
+                <h3 class="module-title">Administración</h3>
+                <p class="module-desc">Usuarios, roles, permisos, auditoría.</p>
+                <div class="module-details"><p>Control granular de acceso con roles personalizados, permisos por módulo y registro de auditoría completo para cada acción del sistema.</p></div>
+            </div>
+            <div class="module-card animate-on-scroll" tabindex="0" role="button" aria-label="Módulo de Reportes">
+                <div class="module-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+                <h3 class="module-title">Reportes</h3>
+                <p class="module-desc">Ventas, inventario, rendimiento, personalizados.</p>
+                <div class="module-details"><p>Dashboards interactivos con reportes de ventas, rotación de inventario, rendimiento por vendedor y reportes personalizados exportables.</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="section how-it-works" id="como-funciona">
+    <div class="container">
+        <div class="section-header animate-on-scroll">
+            <span class="section-tag">Cómo Funciona</span>
+            <h2 class="section-title">Tres pasos para transformar tu negocio</h2>
+            <p class="section-subtitle">Implementa SIGestion en tu empresa en tan solo tres sencillos pasos.</p>
+        </div>
+        <div class="steps-container">
+            <div class="step animate-on-scroll">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h3 class="step-title">Registra</h3>
+                    <p class="step-desc">Carga tus clientes, productos y agentes al sistema en minutos.</p>
+                </div>
+            </div>
+            <div class="step-connector animate-on-scroll" aria-hidden="true"></div>
+            <div class="step animate-on-scroll">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h3 class="step-title">Gestiona</h3>
+                    <p class="step-desc">Crea pedidos, asigna rutas, controla inventario desde un solo panel.</p>
+                </div>
+            </div>
+            <div class="step-connector animate-on-scroll" aria-hidden="true"></div>
+            <div class="step animate-on-scroll">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h3 class="step-title">Entrega</h3>
+                    <p class="step-desc">Monitorea entregas en tiempo real con GPS y confirmación digital.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section testimonials" id="testimonios">
+    <div class="container">
+        <div class="section-header animate-on-scroll">
+            <span class="section-tag">Testimonios</span>
+            <h2 class="section-title">Lo que dicen nuestros clientes</h2>
+            <p class="section-subtitle">Empresas en Nicaragua y Centroamérica que ya confían en SIGestion.</p>
+        </div>
+        <div class="testimonials-grid">
+            <div class="testimonial-card animate-on-scroll">
+                <div class="testimonial-quote">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#5C3CFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.3"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V21z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3z"/></svg>
+                </div>
+                <p class="testimonial-text">"SIGestion nos ayudó a reducir el tiempo de entrega en un 40%. La optimización de rutas es increíble y nuestro equipo de campo trabaja mucho más eficiente."</p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">JP</div>
+                    <div>
+                        <strong class="testimonial-name">Juan Pérez</strong>
+                        <span class="testimonial-role">Director de Operaciones, Distribuidora Central</span>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card animate-on-scroll">
+                <div class="testimonial-quote">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#5C3CFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.3"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V21z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3z"/></svg>
+                </div>
+                <p class="testimonial-text">"El control de inventario nos salvó de pérdidas millonarias. Ahora tenemos visibilidad completa de nuestro stock en todas las sucursales."</p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">ML</div>
+                    <div>
+                        <strong class="testimonial-name">María López</strong>
+                        <span class="testimonial-role">Gerente General, Ferretería El Tornillo</span>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card animate-on-scroll">
+                <div class="testimonial-quote">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#5C3CFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.3"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V21z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3z"/></svg>
+                </div>
+                <p class="testimonial-text">"La implementación fue sencilla y el soporte es excepcional. En menos de una semana ya estábamos operando con SIGestion en toda la empresa."</p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">CR</div>
+                    <div>
+                        <strong class="testimonial-name">Carlos Ramírez</strong>
+                        <span class="testimonial-role">CEO, AgroImport Nicaragua</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PRICING -->
+<section class="section pricing" id="precios">
+    <div class="container">
+        <div class="section-header animate-on-scroll">
+            <span class="section-tag">Precios</span>
+            <h2 class="section-title">Planes que se adaptan a tu negocio</h2>
+            <p class="section-subtitle">Elige el plan ideal para tu empresa. Todos incluyen soporte y actualizaciones.</p>
+        </div>
+        <div class="pricing-grid">
+            <div class="pricing-card animate-on-scroll">
+                <div class="pricing-header">
+                    <h3 class="pricing-name">Básico</h3>
+                    <p class="pricing-desc">Para pequeñas empresas que están empezando.</p>
+                </div>
+                <div class="pricing-price">
+                    <span class="pricing-currency">$</span>
+                    <span class="pricing-amount">49</span>
+                    <span class="pricing-period">/mes</span>
+                </div>
+                <ul class="pricing-features">
+                    <li class="pricing-feature"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Módulos esenciales</li>
+                    <li class="pricing-feature"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> 1 agente de campo</li>
+                    <li class="pricing-feature"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Soporte por email</li>
+                    <li class="pricing-feature"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Reportes básicos</li>
+                </ul>
+                <a href="#contacto" class="btn btn-outline-purple btn-full">Empezar Ahora</a>
+            </div>
+            <div class="pricing-card pricing-card-featured animate-on-scroll">
+                <div class="pricing-badge">Más Popular</div>
+                <div class="pricing-header">
+                    <h3 class="pricing-name">Profesional</h3>
+                    <p class="pricing-desc">Para empresas en crecimiento.</p>
+                </div>
+                <div class="pricing-price">
+                    <span class="pricing-currency">$</span>
+                    <span class="pricing-amount">129</span>
+                    <span class="pricing-period">/mes</span>
+                </div>
+                <ul class="pricing-features">
+                    <li class="pricing-feature"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Todos los módulos</li>
+                    <li class="pricing-feature"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> 5 agentes de campo</li>
+                    <li class="pricing-feature"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Soporte prioritario</li>
+                    <li class="pricing-feature"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Reportes avanzados</li>
+                    <li class="pricing-feature"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> GPS Tracking incluido</li>
+                </ul>
+                <a href="#contacto" class="btn btn-primary btn-full">Elegir Profesional</a>
+            </div>
+            <div class="pricing-card animate-on-scroll">
+                <div class="pricing-header">
+                    <h3 class="pricing-name">Empresarial</h3>
+                    <p class="pricing-desc">Para grandes operaciones.</p>
+                </div>
+                <div class="pricing-price">
+                    <span class="pricing-currency">$</span>
+                    <span class="pricing-amount">299</span>
+                    <span class="pricing-period">/mes</span>
+                </div>
+                <ul class="pricing-features">
+                    <li class="pricing-feature"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Todos los módulos</li>
+                    <li class="pricing-feature"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Agentes ilimitados</li>
+                    <li class="pricing-feature"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Soporte 24/7</li>
+                    <li class="pricing-feature"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Implementación personalizada</li>
+                    <li class="pricing-feature"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> API personalizado</li>
+                </ul>
+                <a href="#contacto" class="btn btn-outline-purple btn-full">Contactar Ventas</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section contact" id="contacto">
+    <div class="container">
+        <div class="contact-grid">
+            <!-- Left: Form -->
+            <div class="contact-form-wrapper animate-on-scroll">
+                <div class="section-header" style="text-align:left">
+                    <span class="section-tag">Contacto</span>
+                    <h2 class="section-title">Agenda tu demo gratuita</h2>
+                    <p class="section-subtitle">Cuéntanos sobre tu negocio y te mostraremos cómo SIGestion puede transformarlo.</p>
+                </div>
+                <form class="contact-form" id="contact-form" novalidate>
+                    <div class="form-group">
+                        <label for="name" class="form-label">Nombre completo</label>
+                        <input type="text" id="name" name="name" class="form-input" placeholder="Tu nombre" required autocomplete="name">
+                    </div>
+                    <div class="form-group">
+                        <label for="email" class="form-label">Correo electrónico</label>
+                        <input type="email" id="email" name="email" class="form-input" placeholder="tu@empresa.com" required autocomplete="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone" class="form-label">Teléfono</label>
+                        <input type="tel" id="phone" name="phone" class="form-input" placeholder="+505 8888 8888" autocomplete="tel">
+                    </div>
+                    <div class="form-group">
+                        <label for="message" class="form-label">Mensaje</label>
+                        <textarea id="message" name="message" class="form-input form-textarea" placeholder="Cuéntanos sobre tu empresa y necesidades..." rows="4"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full btn-lg">Enviar Solicitud <svg class="btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
+                </form>
+            </div>
+
+            <!-- Right: Contact Info -->
+            <div class="contact-schedule animate-on-scroll">
+                <div class="contact-info-card">
+                    <h3 class="contact-info-title">Información de Contacto</h3>
+                    <div class="contact-info-item">
+                        <div class="contact-info-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                        </div>
+                        <div>
+                            <div class="contact-info-label">Correo</div>
+                            <div class="contact-info-value"><a href="mailto:frankball4@yahoo.es">frankball4@yahoo.es</a></div>
+                        </div>
+                    </div>
+                    <div class="contact-info-item">
+                        <div class="contact-info-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                        </div>
+                        <div>
+                            <div class="contact-info-label">Teléfono</div>
+                            <div class="contact-info-value"><a href="tel:+50558883346">+505 5888 3346</a></div>
+                        </div>
+                    </div>
+                    <div class="contact-info-item">
+                        <div class="contact-info-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                        </div>
+                        <div>
+                            <div class="contact-info-label">Dirección</div>
+                            <div class="contact-info-value">Managua, Nicaragua</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="schedule-card">
+                    <div class="schedule-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#5C3CFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                    </div>
+                    <h3 class="schedule-title">¿Prefieres hablar directamente?</h3>
+                    <p class="schedule-desc">Agenda una llamada de 15 minutos con nuestro equipo.</p>
+                    <a href="#" class="btn btn-outline-purple btn-full schedule-btn">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                        Agendar Llamada
+                    </a>
+                    <div class="schedule-features">
+                        <div class="schedule-feature"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Demo personalizada</div>
+                        <div class="schedule-feature"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Sin compromiso</div>
+                        <div class="schedule-feature"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> 100% gratuita</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer" role="contentinfo">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="#" class="logo" aria-label="SIGestion">
+                    <span class="logo-icon">S</span>
+                    <span class="logo-text">SIG<span class="logo-highlight">estion</span></span>
+                </a>
+                <p class="footer-tagline">TODO TU NEGOCIO, EN UN SOLO LUGAR</p>
+                <p class="footer-desc">Plataforma integral de gestión empresarial para PYMES en Nicaragua y Centroamérica.</p>
+            </div>
+            <div class="footer-links">
+                <h4 class="footer-heading">Producto</h4>
+                <a href="#modulos" class="footer-link">Módulos</a>
+                <a href="#precios" class="footer-link">Precios</a>
+                <a href="#como-funciona" class="footer-link">Cómo Funciona</a>
+                <a href="#testimonios" class="footer-link">Testimonios</a>
+            </div>
+            <div class="footer-links">
+                <h4 class="footer-heading">Legal</h4>
+                <a href="#" class="footer-link">Política de Privacidad</a>
+                <a href="#" class="footer-link">Términos de Uso</a>
+                <a href="#" class="footer-link">Blog</a>
+                <a href="#contacto" class="footer-link">Contacto</a>
+            </div>
+            <div class="footer-links">
+                <h4 class="footer-heading">Contacto</h4>
+                <div class="footer-contact-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                    <a href="mailto:frankball4@yahoo.es">frankball4@yahoo.es</a>
+                </div>
+                <div class="footer-contact-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    <a href="tel:+50558883346">+505 5888 3346</a>
+                </div>
+                <div class="footer-contact-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                    <span>Managua, Nicaragua</span>
+                </div>
+                <div class="footer-social" style="margin-top:16px">
+                    <a href="#" class="social-link" aria-label="LinkedIn"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+                    <a href="#" class="social-link" aria-label="Facebook"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+                    <a href="#" class="social-link" aria-label="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 SIGestion. Todos los derechos reservados.</p>
+            <p class="footer-made">Hecho con dedicación para las PYMES de Nicaragua 🇳🇮</p>
+        </div>
+    </div>
+</footer>
+
+<!-- WHATSAPP FLOATING BUTTON -->
+<a href="https://wa.me/50558883346" target="_blank" rel="noopener noreferrer" class="whatsapp-float" aria-label="Contactar por WhatsApp">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+</a>
+
+<script>
+(function(){
+    'use strict';
+    document.addEventListener('DOMContentLoaded',function(){
+        // Mobile menu
+        var toggle=document.getElementById('menu-toggle'),
+            close=document.getElementById('menu-close'),
+            menu=document.getElementById('mobile-menu');
+        if(toggle&&close&&menu){
+            var links=menu.querySelectorAll('.mobile-link');
+            function openMenu(){menu.classList.add('active');menu.setAttribute('aria-hidden','false');toggle.classList.add('active');toggle.setAttribute('aria-expanded','true');document.body.style.overflow='hidden'}
+            function closeMenu(){menu.classList.remove('active');menu.setAttribute('aria-hidden','true');toggle.classList.remove('active');toggle.setAttribute('aria-expanded','false');document.body.style.overflow=''}
+            toggle.addEventListener('click',function(){menu.classList.contains('active')?closeMenu():openMenu()});
+            close.addEventListener('click',closeMenu);
+            links.forEach(function(l){l.addEventListener('click',closeMenu)});
+            document.addEventListener('keydown',function(e){if(e.key==='Escape'&&menu.classList.contains('active')){closeMenu();toggle.focus()}});
+        }
+
+        // Header scroll
+        var header=document.getElementById('header'),tick=false;
+        if(header){
+            window.addEventListener('scroll',function(){if(!tick){window.requestAnimationFrame(function(){window.scrollY>20?header.classList.add('scrolled'):header.classList.remove('scrolled');tick=false});tick=true}},{passive:true});
+        }
+
+        // Scroll animations
+        var animEls=document.querySelectorAll('.animate-on-scroll');
+        if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){animEls.forEach(function(e){e.classList.add('visible')})}
+        else if('IntersectionObserver' in window){
+            var obs=new IntersectionObserver(function(entries){entries.forEach(function(en){if(en.isIntersecting){en.target.classList.add('visible');obs.unobserve(en.target)}})},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+            animEls.forEach(function(e){obs.observe(e)});
+        }else{animEls.forEach(function(e){e.classList.add('visible')})}
+
+        // Module cards expand
+        var mCards=document.querySelectorAll('.module-card');
+        mCards.forEach(function(card){
+            card.addEventListener('click',function(){
+                var was=card.classList.contains('expanded');
+                mCards.forEach(function(c){c.classList.remove('expanded')});
+                if(!was)card.classList.add('expanded');
+            });
+            card.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();card.click()}});
+        });
+
+        // Contact form
+        var form=document.getElementById('contact-form');
+        if(form){
+            form.addEventListener('submit',function(e){
+                e.preventDefault();
+                var name=form.querySelector('#name'),email=form.querySelector('#email'),valid=true;
+                if(!name.value.trim()){shakeField(name);valid=false}
+                if(!email.value.trim()||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)){shakeField(email);valid=false}
+                if(!valid)return;
+                var btn=form.querySelector('button[type="submit"]'),orig=btn.innerHTML;
+                btn.innerHTML='<span style="display:inline-flex;align-items:center;gap:8px">✓ ¡Enviado con éxito!</span>';
+                btn.style.background='#10B981';btn.style.boxShadow='0 4px 14px rgba(16,185,129,0.3)';btn.disabled=true;
+                setTimeout(function(){form.reset();btn.innerHTML=orig;btn.style.background='';btn.style.boxShadow='';btn.disabled=false},3000);
+            });
+        }
+        function shakeField(f){f.style.borderColor='#EF4444';f.style.animation='shake 0.5s ease';f.focus();setTimeout(function(){f.style.borderColor='';f.style.animation=''},1000)}
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(function(a){
+            a.addEventListener('click',function(e){
+                var id=this.getAttribute('href');if(id==='#')return;
+                var t=document.querySelector(id);if(!t)return;
+                e.preventDefault();
+                window.scrollTo({top:t.getBoundingClientRect().top+window.scrollY-72,behavior:'smooth'});
+            });
+        });
+    });
+})();
+</script>
+</body>
+</html>

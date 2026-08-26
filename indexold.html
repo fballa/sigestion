@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIGestion – ERP Comercial y Operativo para PYMES en Nicaragua</title>
+    <meta name="description" content="SIGestion es la plataforma integral de gestión empresarial para PYMES en Nicaragua y Centroamérica. Gestiona ventas, inventario, rutas, entregas y equipo de campo desde un solo lugar.">
+    <meta name="keywords" content="ERP, gestión empresarial, PYMES, Nicaragua, inventario, ventas, rutas, entregas, GPS tracking">
+    <meta name="author" content="SIGestion">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="SIGestion – Todo tu negocio en un solo lugar">
+    <meta property="og:description" content="Plataforma integral de gestión para PYMES en Nicaragua. Ventas, inventario, rutas, entregas y más.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sigestion.com">
+    <meta property="og:image" content="https://sigestion.com/og-image.png">
+    <meta property="og:locale" content="es_NI">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="SIGestion – Todo tu negocio en un solo lugar">
+    <meta name="twitter:description" content="Plataforma integral de gestión para PYMES en Nicaragua.">
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "SIGestion",
+        "applicationCategory": "BusinessApplication",
+        "description": "Sistema integral de gestión empresarial para PYMES en Nicaragua y Centroamérica.",
+        "operatingSystem": "Web",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "author": {
+            "@type": "Organization",
+            "name": "SIGestion"
+        }
+    }
+    </script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@1&family=Inter:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Grid Lines (Desktop) -->
+    <div class="grid-lines" aria-hidden="true">
+        <div class="grid-line"></div>
+        <div class="grid-line"></div>
+        <div class="grid-line"></div>
+    </div>
+
+    <!-- SVG Glow -->
+    <div class="central-glow" aria-hidden="true">
+        <svg width="600" height="200" viewBox="0 0 600 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <filter id="glow-blur" x="-50%" y="-50%" width="200%" height="200%">
+                    <feGaussianBlur stdDeviation="40" />
+                </filter>
+            </defs>
+            <ellipse cx="300" cy="100" rx="250" ry="80" fill="#5C3CFF" opacity="0.08" filter="url(#glow-blur)" />
+        </svg>
+    </div>
+
+    <!-- ===== HEADER / NAVIGATION ===== -->
+    <header class="header" id="header" role="banner">
+        <div class="container header-inner">
+            <a href="#" class="logo" aria-label="SIGestion - Inicio">
+                <span class="logo-icon">S</span>
+                <span class="logo-text">SIG<span class="logo-highlight">estion</span></span>
+            </a>
+
+            <nav class="desktop-nav" aria-label="Navegación principal">
+                <a href="#modulos" class="nav-link">Módulos</a>
+                <a href="#precios" class="nav-link">Precios</a>
+                <a href="#testimonios" class="nav-link">Testimonios</a>
+                <a href="#contacto" class="nav-link">Contacto</a>
+            </nav>
+
+            <div class="header-actions">
+                <a href="#contacto" class="btn btn-outline-purple btn-sm">Demo</a>
+                <button class="hamburger" id="menu-toggle" aria-label="Abrir menú" aria-expanded="false">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobile-menu" role="dialog" aria-label="Menú de navegación" aria-hidden="true">
+            <div class="mobile-menu-header">
+                <a href="#" class="logo" aria-label="SIGestion">
+                    <span class="logo-icon">S</span>
+                    <span class="logo-text">SIG<span class="logo-highlight">estion</span></span>
+                </a>
+                <button class="menu-close" id="menu-close" aria-label="Cerrar menú">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                </button>
+            </div>
+            <nav class="mobile-nav" aria-label="Navegación móvil">
+                <a href="#modulos" class="mobile-link">Módulos</a>
+                <a href="#precios" class="mobile-link">Precios</a>
+                <a href="#testimonios" class="mobile-link">Testimonios</a>
+                <a href="#contacto" class="mobile-link">Contacto</a>
+                <a href="#contacto" class="btn btn-primary btn-full">Solicitar Demo</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ===== HERO SECTION ===== -->
+    <section class="hero" id="hero">
+        <div class="container hero-content">
+            <!-- Liquid Glass Card -->
+            <div class="glass-card animate-on-scroll">
+                <span class="glass-tag">[ 2025 ]</span>
+                <h2 class="glass-headline">Sistema Integral de <em>Gestión</em></h2>
+                <p class="glass-desc">Para PYMES en Nicaragua y Centroamérica</p>
+            </div>
+
+            <div class="hero-text">
+                <span class="hero-eyebrow animate-on-scroll">ERP Comercial y Operativo</span>
+                <h1 class="hero-title animate-on-scroll">
+                    SIGestion – Todo tu negocio en un solo lugar<span class="text-green">.</span>
+                </h1>
+                <p class="hero-description animate-on-scroll">
+                    Gestiona ventas, inventario, rutas, entregas y equipo de campo desde una plataforma unificada. Diseñado para PYMES que quieren crecer sin complicaciones.
+                </p>
+                <div class="hero-cta animate-on-scroll">
+                    <a href="#contacto" class="btn btn-primary btn-lg">
+                        Solicitar Demo
+                        <svg class="btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FEATURES SECTION (Beneficios Clave) ===== -->
+    <section class="section features" id="beneficios">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-tag">Beneficios Clave</span>
+                <h2 class="section-title">¿Por qué SIGestion?</h2>
+                <p class="section-subtitle">Herramientas diseñadas para PYMES que buscan eficiencia y crecimiento.</p>
+            </div>
+
+            <div class="features-grid">
+                <!-- Card 1 -->
+                <div class="feature-card animate-on-scroll">
+                    <div class="feature-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    </div>
+                    <h3 class="feature-title">Ahorra tiempo</h3>
+                    <p class="feature-desc">Automatiza pedidos, rutas y entregas para que tu equipo se enfoque en lo que importa.</p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="feature-card animate-on-scroll">
+                    <div class="feature-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m7.5 4.27 9 5.15"/><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg>
+                    </div>
+                    <h3 class="feature-title">Controla tu inventario</h3>
+                    <p class="feature-desc">Stock en tiempo real, alertas de bajo stock y control total de almacenes.</p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="feature-card animate-on-scroll">
+                    <div class="feature-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                    </div>
+                    <h3 class="feature-title">Optimiza rutas</h3>
+                    <p class="feature-desc">Planifica y monitorea a tus agentes en campo con rutas optimizadas.</p>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="feature-card animate-on-scroll">
+                    <div class="feature-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg>
+                    </div>
+                    <h3 class="feature-title">Toma decisiones</h3>
+                    <p class="feature-desc">Reportes y KPIs al instante para tomar decisiones basadas en datos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== MODULES SHOWCASE (Módulos Principales) ===== -->
+    <section class="section modules" id="modulos">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-tag">Módulos Principales</span>
+                <h2 class="section-title">Todo lo que necesitas, en un solo lugar</h2>
+                <p class="section-subtitle">Módulos integrales diseñados para cubrir cada aspecto de tu negocio.</p>
+            </div>
+
+            <div class="modules-grid">
+                <!-- Module 1 -->
+                <div class="module-card animate-on-scroll" tabindex="0" role="button" aria-label="Módulo de Gestión Comercial">
+                    <div class="module-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    </div>
+                    <h3 class="module-title">Gestión Comercial</h3>
+                    <p class="module-desc">Clientes, productos, precios, promociones.</p>
+                    <div class="module-details">
+                        <p>Administra tu cartera de clientes, catálogo de productos con precios flexibles, promociones por temporada y seguimiento de ventas por vendedor.</p>
+                    </div>
+                </div>
+
+                <!-- Module 2 -->
+                <div class="module-card animate-on-scroll" tabindex="0" role="button" aria-label="Módulo de Inventario">
+                    <div class="module-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m7.5 4.27 9 5.15"/><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg>
+                    </div>
+                    <h3 class="module-title">Inventario</h3>
+                    <p class="module-desc">Almacenes, movimientos, kardex, transferencias.</p>
+                    <div class="module-details">
+                        <p>Control completo de almacenes con kardex electrónico, movimientos de entrada y salida, transferencias entre sucursales y alertas automáticas.</p>
+                    </div>
+                </div>
+
+                <!-- Module 3 -->
+                <div class="module-card animate-on-scroll" tabindex="0" role="button" aria-label="Módulo de Operación">
+                    <div class="module-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+                    </div>
+                    <h3 class="module-title">Operación</h3>
+                    <p class="module-desc">Pedidos, rutas, entregas, vehículos.</p>
+                    <div class="module-details">
+                        <p>Gestiona pedidos de principio a fin: desde la captura hasta la entrega, con planificación de rutas y seguimiento de vehículos en tiempo real.</p>
+                    </div>
+                </div>
+
+                <!-- Module 4 -->
+                <div class="module-card animate-on-scroll" tabindex="0" role="button" aria-label="Módulo de GPS Tracking">
+                    <div class="module-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v4"/><path d="M12 18v4"/><path d="m4.93 4.93 2.83 2.83"/><path d="m16.24 16.24 2.83 2.83"/><path d="M2 12h4"/><path d="M18 12h4"/><path d="m4.93 19.07 2.83-2.83"/><path d="m16.24 7.76 2.83-2.83"/></svg>
+                    </div>
+                    <h3 class="module-title">GPS Tracking</h3>
+                    <p class="module-desc">Monitoreo en tiempo real de agentes.</p>
+                    <div class="module-details">
+                        <p>Ubica a tu equipo de campo en tiempo real, revisa historial de rutas y optimiza cobertura geográfica para máximo rendimiento.</p>
+                    </div>
+                </div>
+
+                <!-- Module 5 -->
+                <div class="module-card animate-on-scroll" tabindex="0" role="button" aria-label="Módulo de Administración">
+                    <div class="module-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>
+                    </div>
+                    <h3 class="module-title">Administración</h3>
+                    <p class="module-desc">Usuarios, roles, permisos, auditoría.</p>
+                    <div class="module-details">
+                        <p>Control granular de acceso con roles personalizados, permisos por módulo y registro de auditoría completo para cada acción del sistema.</p>
+                    </div>
+                </div>
+
+                <!-- Module 6 -->
+                <div class="module-card animate-on-scroll" tabindex="0" role="button" aria-label="Módulo de Reportes">
+                    <div class="module-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                    </div>
+                    <h3 class="module-title">Reportes</h3>
+                    <p class="module-desc">Ventas, inventario, rendimiento, personalizados.</p>
+                    <div class="module-details">
+                        <p>Dashboards interactivos con reportes de ventas, rotación de inventario, rendimiento por vendedor y reportes personalizados exportables.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== HOW IT WORKS ===== -->
+    <section class="section how-it-works" id="como-funciona">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-tag">Cómo Funciona</span>
+                <h2 class="section-title">Tres pasos para transformar tu negocio</h2>
+                <p class="section-subtitle">Implementa SIGestion en tu empresa en tan solo tres sencillos pasos.</p>
+            </div>
+
+            <div class="steps-container">
+                <!-- Step 1 -->
+                <div class="step animate-on-scroll">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3 class="step-title">Registra</h3>
+                        <p class="step-desc">Carga tus clientes, productos y agentes al sistema en minutos.</p>
+                    </div>
+                </div>
+
+                <div class="step-connector animate-on-scroll" aria-hidden="true"></div>
+
+                <!-- Step 2 -->
+                <div class="step animate-on-scroll">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3 class="step-title">Gestiona</h3>
+                        <p class="step-desc">Crea pedidos, asigna rutas, controla inventario desde un solo panel.</p>
+                    </div>
+                </div>
+
+                <div class="step-connector animate-on-scroll" aria-hidden="true"></div>
+
+                <!-- Step 3 -->
+                <div class="step animate-on-scroll">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3 class="step-title">Entrega</h3>
+                        <p class="step-desc">Monitorea entregas en tiempo real con GPS y confirmación digital.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== TESTIMONIALS ===== -->
+    <section class="section testimonials" id="testimonios">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-tag">Testimonios</span>
+                <h2 class="section-title">Lo que dicen nuestros clientes</h2>
+                <p class="section-subtitle">Empresas en Nicaragua y Centroamérica que ya confían en SIGestion.</p>
+            </div>
+
+            <div class="testimonials-grid">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card animate-on-scroll">
+                    <div class="testimonial-quote">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#5C3CFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.3"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V21z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3z"/></svg>
+                    </div>
+                    <p class="testimonial-text">"SIGestion nos ayudó a reducir el tiempo de entrega en un 40%. La optimización de rutas es increíble y nuestro equipo de campo trabaja mucho más eficiente."</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">JP</div>
+                        <div>
+                            <strong class="testimonial-name">Juan Pérez</strong>
+                            <span class="testimonial-role">Director de Operaciones, Distribuidora Central</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card animate-on-scroll">
+                    <div class="testimonial-quote">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#5C3CFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.3"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V21z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3z"/></svg>
+                    </div>
+                    <p class="testimonial-text">"El control de inventario nos salvó de pérdidas millonarias. Ahora tenemos visibilidad completa de nuestro stock en todas las sucursales."</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">ML</div>
+                        <div>
+                            <strong class="testimonial-name">María López</strong>
+                            <span class="testimonial-role">Gerente General, Ferretería El Tornillo</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card animate-on-scroll">
+                    <div class="testimonial-quote">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#5C3CFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.3"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V21z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3z"/></svg>
+                    </div>
+                    <p class="testimonial-text">"La implementación fue sencilla y el soporte es excepcional. En menos de una semana ya estábamos operando con SIGestion en toda la empresa."</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">CR</div>
+                        <div>
+                            <strong class="testimonial-name">Carlos Ramírez</strong>
+                            <span class="testimonial-role">CEO, AgroImport Nicaragua</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PRICING ===== -->
+    <section class="section pricing" id="precios">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-tag">Precios</span>
+                <h2 class="section-title">Planes que se adaptan a tu negocio</h2>
+                <p class="section-subtitle">Elige el plan ideal para tu empresa. Todos incluyen soporte y actualizaciones.</p>
+            </div>
+
+            <div class="pricing-grid">
+                <!-- Básico -->
+                <div class="pricing-card animate-on-scroll">
+                    <div class="pricing-header">
+                        <h3 class="pricing-name">Básico</h3>
+                        <p class="pricing-desc">Para pequeñas empresas que están empezando.</p>
+                    </div>
+                    <div class="pricing-price">
+                        <span class="pricing-currency">$</span>
+                        <span class="pricing-amount">49</span>
+                        <span class="pricing-period">/mes</span>
+                    </div>
+                    <ul class="pricing-features">
+                        <li class="pricing-feature">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                            Módulos esenciales
+                        </li>
+                        <li class="pricing-feature">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                            1 agente de campo
+                        </li>
+                        <li class="pricing-feature">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                            Soporte por email
+                        </li>
+                        <li class="pricing-feature">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                            Reportes básicos
+                        </li>
+                    </ul>
+                    <a href="#contacto" class="btn btn-outline-purple btn-full">Empezar Ahora</a>
+                </div>
+
+                <!-- Profesional (Highlighted) -->
+                <div class="pricing-card pricing-card-featured animate-on-scroll">
+                    <div class="pricing-badge">Más Popular</div>
+                    <div class="pricing-header">
+                        <h3 class="pricing-name">Profesional</h3>
+                        <p class="pricing-desc">Para empresas en crecimiento.</p>
+                    </div>
+                    <div class="pricing-price">
+                        <span class="pricing-currency">$</span>
+                        <span class="pricing-amount">129</span>
+                        <span class="pricing-period">/mes</span>
+                    </div>
+                    <ul class="pricing-features">
+                        <li class="pricing-feature">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                            Todos los módulos
+                        </li>
+                        <li class="pricing-feature">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                            5 agentes de campo
+                        </li>
+                        <li class="pricing-feature">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                            Soporte prioritario
+                        </li>
+                        <li class="pricing-feature">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                            Reportes avanzados
+                        </li>
+                        <li class="pricing-feature">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                            GPS Tracking incluido
+                        </li>
+                    </ul>
+                    <a href="#contacto" class="btn btn-primary btn-full">Elegir Profesional</a>
+                </div>
+
+                <!-- Empresarial -->
+                <div class="pricing-card animate-on-scroll">
+                    <div class="pricing-header">
+                        <h3 class="pricing-name">Empresarial</h3>
+                        <p class="pricing-desc">Para grandes operaciones.</p>
+                    </div>
+                    <div class="pricing-price">
+                        <span class="pricing-currency">$</span>
+                        <span class="pricing-amount">299</span>
+                        <span class="pricing-period">/mes</span>
+                    </div>
+                    <ul class="pricing-features">
+                        <li class="pricing-feature">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                            Todos los módulos
+                        </li>
+                        <li class="pricing-feature">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                            Agentes ilimitados
+                        </li>
+                        <li class="pricing-feature">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                            Soporte 24/7
+                        </li>
+                        <li class="pricing-feature">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                            Implementación personalizada
+                        </li>
+                        <li class="pricing-feature">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                            API personalizado
+                        </li>
+                    </ul>
+                    <a href="#contacto" class="btn btn-outline-purple btn-full">Contactar Ventas</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CONTACT / CTA FINAL ===== -->
+    <section class="section contact" id="contacto">
+        <div class="container">
+            <div class="contact-grid">
+                <!-- Form -->
+                <div class="contact-form-wrapper animate-on-scroll">
+                    <div class="section-header" style="text-align: left;">
+                        <span class="section-tag">Contacto</span>
+                        <h2 class="section-title">Agenda tu demo gratuita</h2>
+                        <p class="section-subtitle">Cuéntanos sobre tu negocio y te mostraremos cómo SIGestion puede transformarlo.</p>
+                    </div>
+
+                    <form class="contact-form" id="contact-form" novalidate>
+                        <div class="form-group">
+                            <label for="name" class="form-label">Nombre completo</label>
+                            <input type="text" id="name" name="name" class="form-input" placeholder="Tu nombre" required autocomplete="name">
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="form-label">Correo electrónico</label>
+                            <input type="email" id="email" name="email" class="form-input" placeholder="tu@empresa.com" required autocomplete="email">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone" class="form-label">Teléfono</label>
+                            <input type="tel" id="phone" name="phone" class="form-input" placeholder="+505 8888 8888" autocomplete="tel">
+                        </div>
+                        <div class="form-group">
+                            <label for="message" class="form-label">Mensaje</label>
+                            <textarea id="message" name="message" class="form-input form-textarea" placeholder="Cuéntanos sobre tu empresa y necesidades..." rows="4"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-full btn-lg">
+                            Enviar Solicitud
+                            <svg class="btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Schedule CTA -->
+                <div class="contact-schedule animate-on-scroll">
+                    <div class="schedule-card">
+                        <div class="schedule-icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#5C3CFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                        </div>
+                        <h3 class="schedule-title">¿Prefieres hablar directamente?</h3>
+                        <p class="schedule-desc">Agenda una llamada de 15 minutos con nuestro equipo y descubre todo lo que SIGestion puede hacer por tu empresa.</p>
+                        <a href="#" class="btn btn-outline-purple btn-full schedule-btn">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                            Agendar Llamada
+                        </a>
+
+                        <div class="schedule-features">
+                            <div class="schedule-feature">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                                Demo personalizada
+                            </div>
+                            <div class="schedule-feature">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                                Sin compromiso
+                            </div>
+                            <div class="schedule-feature">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                                100% gratuita
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Brand -->
+                <div class="footer-brand">
+                    <a href="#" class="logo" aria-label="SIGestion">
+                        <span class="logo-icon">S</span>
+                        <span class="logo-text">SIG<span class="logo-highlight">estion</span></span>
+                    </a>
+                    <p class="footer-tagline">TODO TU NEGOCIO, EN UN SOLO LUGAR</p>
+                    <p class="footer-desc">Plataforma integral de gestión empresarial para PYMES en Nicaragua y Centroamérica.</p>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="footer-links">
+                    <h4 class="footer-heading">Producto</h4>
+                    <a href="#modulos" class="footer-link">Módulos</a>
+                    <a href="#precios" class="footer-link">Precios</a>
+                    <a href="#como-funciona" class="footer-link">Cómo Funciona</a>
+                    <a href="#testimonios" class="footer-link">Testimonios</a>
+                </div>
+
+                <!-- Legal -->
+                <div class="footer-links">
+                    <h4 class="footer-heading">Legal</h4>
+                    <a href="#" class="footer-link">Política de Privacidad</a>
+                    <a href="#" class="footer-link">Términos de Uso</a>
+                    <a href="#" class="footer-link">Blog</a>
+                    <a href="#contacto" class="footer-link">Contacto</a>
+                </div>
+
+                <!-- Social -->
+                <div class="footer-links">
+                    <h4 class="footer-heading">Síguenos</h4>
+                    <div class="footer-social">
+                        <a href="#" class="social-link" aria-label="LinkedIn">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Facebook">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Instagram">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 SIGestion. Todos los derechos reservados.</p>
+                <p class="footer-made">Hecho con dedicación para las PYMES de Nicaragua 🇳🇮</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+</html>
